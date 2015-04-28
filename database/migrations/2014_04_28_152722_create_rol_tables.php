@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateWordsTable extends Migration {
+class CreateRolTables extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,15 +12,10 @@ class CreateWordsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('words', function(Blueprint $table)
+		Schema::create('roles', function(Blueprint $table)
 		{
 			$table->increments('id');
-
-            $table->integer('type_word');
-            $table->string('char_chinesse');
-            $table->string('pronun');
-
-			$table->timestamps();
+			$table->string('name_rol');
 		});
 	}
 
@@ -31,7 +26,7 @@ class CreateWordsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('words');
+		Schema::drop('roles');
 	}
 
 }

@@ -19,13 +19,12 @@ class CreateTypeWordsTable extends Migration {
             $table->integer('word_id')->unsigned();
             $table->string('name_type');
 			$table->timestamps();
-		});
 
-        /*Schema::table('type_words', function($table){
-            $table->foreign('word_id')
-                ->references('id')
-                ->on('words');
-        });*/
+			$table->foreign('word_id')
+				->references('id')
+				->on('words');
+
+		});
 	}
 
 	/**

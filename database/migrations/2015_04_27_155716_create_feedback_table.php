@@ -14,13 +14,13 @@ class CreateFeedbackTable extends Migration {
 	{
 		Schema::create('feedback', function(Blueprint $table)
 		{
-			$table->increments('id_feedback');
+			$table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->string('feed')->nullable();
 
-            /*$table->foreign('user_id')
-                ->references('id_feedback')
-                ->on('users');*/
+            $table->foreign('user_id')
+                ->references('id') //Siempre se tiene que poner id porque es la convención de Laravel 5
+                ->on('users');
 
 			$table->timestamps();
 		});
